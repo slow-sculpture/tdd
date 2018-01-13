@@ -32,6 +32,11 @@ public class GreetingsTest {
         String greet = Greetings.greet("Jan", "Ala", "Bob");
         assertEquals("Hello, Jan, Ala and Bob", greet);
     }
+    @Test
+    public void should_greet_with_capital_letters(){
+        String greet = Greetings.greet("Jan", "ALA", "Bob");
+        assertEquals("Hello, Jan and Bob AND HELLO ALA", greet);
+    }
 
 
 

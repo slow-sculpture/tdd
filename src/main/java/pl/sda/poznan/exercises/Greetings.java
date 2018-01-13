@@ -14,7 +14,21 @@ public class Greetings {
             }
             return String.format("Hello, %s", names);
         } else {
-            return String.format("Hello, %s and %s", names[0], names[1]);
+            StringBuilder sb = new StringBuilder();
+            sb.append("Hello");
+            String capitalName = null;
+            for (int i = 0; i < names.length - 1; i++) {
+                if(names[i].equals(names[i].toUpperCase())){
+                    capitalName = names[i];
+                    continue;
+                }
+                sb.append(", ").append(names[i]);
+            }
+            sb.append(" and ").append(names[names.length - 1]);
+            if(capitalName != null){
+                sb.append(" AND HELLO ").append(capitalName);
+            }
+            return sb.toString();
         }
 
     }
