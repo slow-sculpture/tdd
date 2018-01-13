@@ -1,4 +1,4 @@
-package pl.sda.poznan.math;
+package pl.sda.poznan.exercises;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package pl.sda.poznan.math;
+package pl.sda.poznan.exercises;
 
 public class Calculator {
     public static int sum(String str) {
