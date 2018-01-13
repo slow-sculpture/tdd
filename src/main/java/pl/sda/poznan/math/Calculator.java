@@ -5,13 +5,27 @@ public class Calculator {
         if (str.isEmpty()) {
             return 0;
         } else if (str.length() == 1) {
-            return Integer.parseInt(str);
+            return parseInteger(str);
+        } else {
+            return sumNumbers(str);
         }
-        return -1;
+    }
+
+    private static int sumNumbers(String str) {
+        String[] split = str.split(",");
+        int result = 0;
+        for(int i = 0; i < split.length; i++){
+            result += parseInteger(split[i]);
+        }
+        return result;
+    }
+
+    private static int parseInteger(String s){
+        return Integer.parseInt(s);
     }
 }
 
-//domyslnie maven na wesrsję javy 1.5
+//domyslnie maven ma wesrsję javy 1.5
 //zeby byla java 8 to w pom.xml trzeba dopisac (wpisac w neta):
 /*
  <build>

@@ -18,4 +18,22 @@ public class CalculatorTest {
         assertEquals(number, 2);
     }
 
+    @Test
+    public void should_sum_two_number(){
+        int result = Calculator.sum("2,3");
+        assertEquals(result, 5);
+    }
+
+    @Test
+    public void should_sum_multiple_nimbers(){
+        int sum = Calculator.sum("2,3,4,5");
+        assertEquals(14, sum);
+    }
+
+    @Test
+    public void should_sum_number_separated_by_new_line_mark(){
+        int sum = Calculator.sum("2\n3\n1");
+        assertEquals(6, sum);
+    }
+
 }
