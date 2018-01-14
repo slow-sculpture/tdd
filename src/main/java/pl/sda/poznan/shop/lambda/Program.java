@@ -34,5 +34,6 @@ public class Program {
         int a = 5;
         int b = 10;
         return calculator.calculate(a, b);
+        //w locie bedzie tworzyl anonimowa klase i wykona wszystkie dzialania
     }
 }
