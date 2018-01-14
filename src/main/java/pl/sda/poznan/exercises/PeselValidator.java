@@ -1,8 +1,13 @@
 package pl.sda.poznan.exercises;
 
 public class PeselValidator {
+    private int[] parameters = {9, 7, 3, 1, 9, 7, 3, 1, 9, 7};
+
     public boolean validate(String id) {
-        int result = calculateControlSum(id);
+        if(id.isEmpty() || id.length() !=11){
+            throw new IllegalArgumentException("Length error");
+        }
+        int result = calculateControlSumUsingParameteres(id);
         return checkControlSum(result, convertCharToInt(id.charAt(10)));
 
     }
@@ -26,5 +31,12 @@ public class PeselValidator {
                 1 * convertCharToInt(id.charAt(7)) +
                 9 * convertCharToInt(id.charAt(8)) +
                 7 * convertCharToInt(id.charAt(9));
+    }
+    private int calculateControlSumUsingParameteres(String id){
+        int controlSum = 0;
+        for(int i=0;i<id.length()-1; i++){
+            controlSum+=parameters[i]*convertCharToInt(id.charAt(i));
+        }
+        return controlSum;
     }
 }
