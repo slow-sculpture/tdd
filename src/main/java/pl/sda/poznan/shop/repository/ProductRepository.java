@@ -17,6 +17,27 @@ public class ProductRepository {
     }
 
     public Product getById(Long id) {
+        //starsze podejscie
+        for(Product p:products){
+            if(p.equals(id)){
+                return p;
+            }
+        }
+        products
+                .stream()
+                .filter(product -> product.getId().equals(id));
+        //wyrazenie lambda
+        //zapis funkcji anonimowej (bez nazwy)
+        // lista_argumentow_funkcji ->
+        //np.
+        // public int sum(int a, int b){
+        //  return a+b;
+        //  }
+        //    ==========
+        //  (a, b)     -> a+b;
+
+        //jezeli interfejs ma jedna metode to mozemy go zastapic wyrazeniem lambda
+
         throw new UnsupportedOperationException();
     }
 
