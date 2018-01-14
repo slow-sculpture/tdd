@@ -33,6 +33,9 @@ cmake-build-debug/
 # IntelliJ
 out/
 
+# maven out folder
+targer/
+
 # mpeltonen/sbt-idea plugin
 .idea_modules/
 

@@ -39,4 +39,13 @@ public class FactorialTest {
 
 
 
+    @Test (expected = IllegalArgumentException.class)
+    public void should_throw_exception_if_number_is_minus(){
+        int result = Factorial.factorial(-2);
+        assertEquals(new IllegalArgumentException(), result);
+
+    }
+
+
+
 }
