@@ -2,13 +2,10 @@ package pl.sda.poznan.shop.repository;
 
 import pl.sda.poznan.shop.exceptions.ProductNotFoundException;
 import pl.sda.poznan.shop.model.Product;
-import pl.sda.poznan.shop.model.ProductByIdPredicate;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
+
 
 public class ProductRepository {
 
@@ -33,8 +30,6 @@ public class ProductRepository {
                         //rozszerza RuntimeException ->wyjatek niekontrolowany nie trzeba go obslugiwac
                         //ani dodawac przy nazwie metody
                 );
-
-
     }
 
     public Product getByName(String name) {
@@ -44,19 +39,17 @@ public class ProductRepository {
                 .orElseThrow(() ->
                         new ProductNotFoundException
                                 ("Nie mozna znalezc produktu o danej nazwie"));
-
-
     }
 
-    public void remove(Long id) {
-        throw new UnsupportedOperationException();
+    public boolean remove(Long id) {
+        return this.products.removeIf(p -> p.getId().equals(id));
     }
 
-    public void remove(Product product) {
-        throw new UnsupportedOperationException();
+    public boolean remove(Product product) {
+        return this.products.remove(product);
     }
 
     public int count() {
-        throw new UnsupportedOperationException();
+        return this.products.size();
     }
 }
