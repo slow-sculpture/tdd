@@ -55,6 +55,7 @@ public class App {
                             .build();
 
                     cart.add(build);
+                    System.out.println("Dodano element do koszyka");
                     break;
                 case 9:
                     System.out.println("Logowanie...");
