@@ -10,7 +10,7 @@ public class CartItem {
     public CartItem() {
     }
 
-    public CartItem(String name, String description, double unitPrice, int quantity) {
+    private CartItem(String name, String description, double unitPrice, int quantity) {
         this.name = name;
         this.description = description;
         this.unitPrice = unitPrice;
@@ -91,6 +91,9 @@ public class CartItem {
         public CartItem build() {
             return new CartItem(this.name, this.description, this.unitPrice, this.quantity);
         }
+
+        // Builder zastapil konstruktor ktory teraz nie jest public
+        // tylko private - wykorzystywany tylko w klasie wewnetrzenj buildera
     }
 
 

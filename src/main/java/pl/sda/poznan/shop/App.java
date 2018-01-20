@@ -39,9 +39,9 @@ public class App {
 
                     //logika dodawania do koszyka
                     //I sposob -- all args constructor
-                    CartItem cartItem = new CartItem(product.getName(), product.getDescription(), product.getPrice(), quantity);
+                    //CartItem cartItem = new CartItem(product.getName(), product.getDescription(), product.getPrice(), quantity);
 
-                    //II sposob -- Jva Beans method
+                    //II sposob -- Java Beans method
                     CartItem cartItem1 = new CartItem();
                     cartItem1.setName(product.getName());
                     cartItem1.setDescription(product.getDescription());
@@ -49,9 +49,12 @@ public class App {
                     cartItem1.setQuantity(quantity);
 
                     //III sposob -- wzorzec Builder
-                    //CartItem.builder
+                    CartItem build = CartItem.builder()
+                            .description(product.getDescription())
+                            .name(product.getName())
+                            .build();
 
-                    cart.add(cartItem);
+                    cart.add(build);
                     break;
                 case 9:
                     System.out.println("Logowanie...");
