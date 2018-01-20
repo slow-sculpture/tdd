@@ -38,4 +38,13 @@ public class Product {
     public void setPrice(Double price) {
         this.price = price;
     }
+   /* @Override
+    public int compareTo(Product o){
+        return price.compareTo(o.getPrice());
+    }*/
+
+    @Override
+    public String toString(){
+        return String.format("%s - %s - %s - %.2f", id, name, description, price);
+    }
 }

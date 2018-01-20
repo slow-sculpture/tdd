@@ -1,4 +1,4 @@
-package pl.sda.poznan.shop.lambda;
+package pl.sda.poznan.lambda;
 
 public class Program {
     public static void main(String[] args) {

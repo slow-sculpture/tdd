@@ -3,20 +3,57 @@ package pl.sda.poznan.shop.repository;
 import pl.sda.poznan.shop.exceptions.ProductNotFoundException;
 import pl.sda.poznan.shop.model.Product;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 
 public class ProductRepository {
 
+    //chcemy zabronic utworzenia wiecej niz jednego obiektu klasy
+    //wzorzec Singleton
+
+    //krok 2.
+    private static ProductRepository instance = new ProductRepository();
+
+    //krok 1. prywatny konstruktor
+    private ProductRepository() {
+    }
+
+    //krok 3.
+    public static ProductRepository getInstance() {
+        return instance;
+    }
+
+
     private static Long id = 1L;
-    private List<Product> products;
+    private List<Product> products = new ArrayList<>();
+
 
     public Product add(Product product) {
         //nadac id dla produktu
         product.setId(id++);
         this.products.add(product);
         return product;
+    }
+
+    public void add(List<Product> products) {
+        //1. method reference
+        //czyt. dla kazdej ta metode
+        products.forEach(this::add);
+        /*
+        2. lambda expression
+        products.forEach(product -> this.add(product));
+
+        3. for loop
+        for(Product product:products){
+            this.add(product);
+            */
+    }
+
+
+    public List<Product> getAll() {
+        return this.products;
     }
 
     public Product getById(Long id) {
