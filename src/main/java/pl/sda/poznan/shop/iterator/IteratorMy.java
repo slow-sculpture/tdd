@@ -1,6 +1,6 @@
 package pl.sda.poznan.shop.iterator;
 
-public interface Iterator<T> {
+public interface IteratorMy<T> {
     boolean hasNext();
     T next();
     void reset();
