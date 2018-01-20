@@ -1,6 +1,7 @@
 package pl.sda.poznan.shop.repository;
 
 import pl.sda.poznan.shop.model.Product;
+import pl.sda.poznan.shop.model.ProductByIdPredicate;
 
 import java.util.Collection;
 import java.util.List;
@@ -26,9 +27,13 @@ public class ProductRepository {
                 return p;
             }
         }
-        products
+        List<Product> collect = products
                 .stream()
-                .filter(product -> product.getId().equals(id));
+                .filter(new ProductByIdPredicate(id))
+                .collect(Collectors.toList());
+        /*products
+                .stream()
+                .filter(product -> product.getId().equals(id));*/
         //wyrazenie lambda
         //zapis funkcji anonimowej (bez nazwy)
         // lista_argumentow_funkcji ->
@@ -39,19 +44,35 @@ public class ProductRepository {
         //    ==========
         //  (a, b)     -> a+b;
 
-        //jezeli interfejs ma jedna metode to mozemy go zastapic wyrazeniem lambda
+        //jezeli interfejs ma jedna metode to mozemy go zastapic wyrazeniem lambda ->interfejs funkcyjny
+        //@Functional Inerface
+
+        //default - domyslna metoda w interfejsie ktora ma cialo
+        //klasy implementujace interfejs maja ta metoda ale nie musza jej ovarerridowa-implementowa ale moga
 
         throw new UnsupportedOperationException();
     }
 
     public Product getByName(String name) {
-        //List<Product> collect = this.products
-        // ==
-        return this.products
+        List<Product> collect = this.products
                 .stream()
                 .filter(pr -> pr.getName().equals(name))
-                .collect(Collectors.toList())
-                .get(0);
+                .filter(pr -> pr.getPrice() > 500)
+//        .map(product -> product.getDescription())
+                .collect(Collectors.toList());
+        return collect.get(0);
+
+        //do sortowania tez jest metoda (glupi przyklad) ale np po cenie
+        //collect.sort(((o1, o2) -> o1.getName().compareTo(o2.getName())));
+
+        //dla kazdego zrob cos tam
+        //collect.forEach(product -> System.out.println(product.getDescription()));
+        // === (inny sposob to nie jest wyrazenie lambda)
+        //collect.forEach(System.out::println);
+
+        //po staremu by byl for iterujacy po produktach if spelni waruenk dodaj to jakiejs listy
+        //potem drugi for iterujacy po tej liscie i ifem sprawdzajacy czy spelni warunek
+        //i do nowej listy
 
     }
 
