@@ -49,7 +49,7 @@ public class App {
                     cartItem1.setQuantity(quantity);
 
                     //III sposob -- wzorzec Builder
-                    CartItem.builder
+                    //CartItem.builder
 
                     cart.add(cartItem);
                     break;
