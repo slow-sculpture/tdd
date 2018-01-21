@@ -52,10 +52,16 @@ public class App {
                     CartItem build = CartItem.builder()
                             .description(product.getDescription())
                             .name(product.getName())
+                            .unitPrice(product.getPrice())
+                            .quantity(quantity)
                             .build();
 
                     cart.add(build);
-                    System.out.println("Dodano element do koszyka");
+                    System.out.println("Dodano element do koszyka. Aktualna wartosc zakupow to: " + cart.getSum());
+                    break;
+                case 8:
+                    System.out.println("Zapis do pliku");
+                    System.out.println("Podaj sciezke pliku");
                     break;
                 case 9:
                     System.out.println("Logowanie...");
@@ -85,7 +91,7 @@ public class App {
         System.out.println("1. Wyswietl wszystkie produkty");
         System.out.println("2. Dodawanie do koszyka");
 
-
+        System.out.println("8. Zapisz produkty do pliku");
         System.out.println("9. Logowanie");
         System.out.println("10. Rejestracja");
         System.out.println("0. Wysjcie");
