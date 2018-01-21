@@ -24,7 +24,9 @@ public class TxtProductFileWriter implements ProductFileWriter {
                 .map(product -> product.toString()) //z wykorzystanie method referencje .map(String::toString)
                 .collect(Collectors.toList());
 
+        //korzystamy z new io (nio patrz import) a nie jak wczesniej z io (we wprowadzeniu) bo latwiejsze
         Files.write(Paths.get(path), collect);
+
 
     }
 }
