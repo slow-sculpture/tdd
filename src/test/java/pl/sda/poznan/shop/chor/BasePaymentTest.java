@@ -13,7 +13,7 @@ public class BasePaymentTest {
         Payment pinpay = new PinPayment(account);
 
         paypass.setNextHandler(pinpay);
-        paypass.handle(1000D);
+        boolean isSuccess = paypass.handle(1000D);
     }
 
 }
